@@ -25,7 +25,7 @@ namespace WebClientA.Pages
         }
         public async Task OnPostAll()
         {
-            HttpRequestMessage request = new HttpRequestMessage(HttpMethod.Get, $"/langs");
+            HttpRequestMessage request = new HttpRequestMessage(HttpMethod.Get, $"/langs") ;
             HttpResponseMessage response = await _httpClient.SendAsync(request);
             if (response.IsSuccessStatusCode)
                 JsonAnswer = await response.Content.ReadAsStringAsync();
@@ -71,9 +71,9 @@ namespace WebClientA.Pages
             KeyValuePair<string, string>[] formData = {
         new KeyValuePair<string, string>("id", Lang.Id),
         new KeyValuePair<string, string>("year", Lang.Year.ToString())
-    };
+        };
 
-            HttpRequestMessage request = new HttpRequestMessage(HttpMethod.Put, $"/langs");
+            HttpRequestMessage request = new HttpRequestMessage(HttpMethod.Put, $"/langs/{Lang.Id}");
             request.Content = new FormUrlEncodedContent(formData);
 
             HttpResponseMessage response = await _httpClient.SendAsync(request);

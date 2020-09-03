@@ -47,9 +47,9 @@ namespace LangsApi.Controllers
         }
         // PUT: langs/5
         [HttpPut("{id}")]
-        public ActionResult Put([FromForm] Lang lang)
+        public ActionResult Put(string id,[FromForm] Lang lang)
         {
-            var oldLang = _langs.SingleOrDefault(l => l.Id == lang.Id);
+            var oldLang = _langs.SingleOrDefault(l => l.Id == id);
             if (oldLang == null)
                 return NotFound();
             if (ModelState.IsValid)

@@ -27,11 +27,11 @@ namespace WebClientA
             services.AddRazorPages();
 
             //var client = new HttpClient();
-            //    client.BaseAddress = new Uri("https://localhost:5001");
+            //    client.BaseAddress = new Uri("https://localhost:62623");
             //    client.DefaultRequestHeaders.ExpectContinue = false;
             //    services.AddSingleton(client);
 
-            services.AddSingleton(new HttpClient { BaseAddress = new Uri("https://localhost:5001") });
+            services.AddSingleton(new HttpClient { BaseAddress = new Uri("http://localhost:62623") });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
